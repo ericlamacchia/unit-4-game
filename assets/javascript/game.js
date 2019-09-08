@@ -9,8 +9,9 @@
 
 
 var randomResult;
-var losses;
-var wins;
+var losses = 0;
+var wins = 0;
+var previous = 0;
 
 randomResult = Math.floor(Math.random() * 102 ) + 19;
 
@@ -20,11 +21,11 @@ $("#result").html('Random Number: ' + randomResult);
 
 for(var i = 0; i < 4; i++){
     var random =Math.floor(Math.random() * 11) + 1;
-    console.log(random);
+    //console.log(random);
     var jewel = $("<div>");
         jewel.attr({
             "class": 'jewel',
-            "data-random": random
+            "data-forme": random
         });
 
 
@@ -33,7 +34,21 @@ for(var i = 0; i < 4; i++){
     }
     
     $(".jewel").on('click', function () {
-        console.log($(this));
+
+        var num = parseInt($(this).attr('data-forme'));
+        previous += num;
+        console.log(previous)
+        if (previous > randomResult){
+            losses--;
+            $("#losses").html(losses);
+            
+        }
+        else if(previous === randomResult){
+            wins++;
+            $("#wins").html(wins);
+
+        }
+        
         
     });
 
