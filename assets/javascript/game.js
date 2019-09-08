@@ -13,44 +13,63 @@ var losses = 0;
 var wins = 0;
 var previous = 0;
 
-randomResult = Math.floor(Math.random() * 102 ) + 19;
+var resetGame = function () {
+
+    $(".jewels").empty();
+
+    randomResult = Math.floor(Math.random() * 102) + 19;
 
 
 
-$("#result").html('Random Number: ' + randomResult);
+    $("#result").html('Random Number: ' + randomResult);
 
-for(var i = 0; i < 4; i++){
-    var random =Math.floor(Math.random() * 11) + 1;
-    //console.log(random);
-    var jewel = $("<div>");
+    for (var i = 0; i < 4; i++) {
+        var random = Math.floor(Math.random() * 11) + 1;
+        //console.log(random);
+        
+        var jewel = $("<div>");
         jewel.attr({
             "class": 'jewel',
             "data-forme": random
         });
 
+        jewel.html(random);
 
-    $(".jewels").append(jewel);
+        $(".jewels").append(jewel);
 
     }
-    
-    $(".jewel").on('click', function () {
+        $("#previous").html("Current amount: " + previous)
+}
 
-        var num = parseInt($(this).attr('data-forme'));
-        previous += num;
-        console.log(previous)
-        if (previous > randomResult){
-            losses--;
-            $("#losses").html(losses);
-            
-        }
-        else if(previous === randomResult){
-            wins++;
-            $("#wins").html(wins);
 
-        }
+
+resetGame();
+
+$(document).on('click',".jewel", function () {
+
+    var num = parseInt($(this).attr('data-forme'));
+    previous += num;
+    $("#previous").html("Current amount: " + previous)
+    console.log(previous)
+    if (previous > randomResult) {
+        losses++;
+        $("#losses").html("You lost: " + losses);
+        previous = 0;
         
-        
-    });
+        resetGame();
 
-    
+    }
+    else if (previous === randomResult) {
+        wins++;
+        $("#wins").html("You won: " + wins);
+        
+        previous = 0;
+        resetGame();
+
+    }
+
+
+});
+
+
 
