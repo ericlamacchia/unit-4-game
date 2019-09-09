@@ -4,6 +4,10 @@ body {
     background-size: cover;
     height: 100%;
 }
+h2 {
+    color: whitesmoke;
+}
+
 h3 {
     color: whitesmoke;
 }
