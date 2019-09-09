@@ -1,3 +1,13 @@
+body {
+    background-image: url("../images/backimagejewel.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+}
+h3 {
+    color: whitesmoke;
+}
+
 .jewels{
     display: flex;
     justify-content: space-around;
@@ -11,4 +21,8 @@
     border:1px solid green;
     height:200px;
     width:200px;
+}
+
+.wordies {
+    color: whitesmoke;
 }
