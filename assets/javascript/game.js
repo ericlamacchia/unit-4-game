@@ -12,6 +12,7 @@ var randomResult;
 var losses = 0;
 var wins = 0;
 var previous = 0;
+var images = ["assets/images/green gem.png", "assets/images/orange gem.png", "assets/images/redgem.png", "assets/images/yellow.png"]
 
 var resetGame = function () {
 
@@ -27,13 +28,16 @@ var resetGame = function () {
         var random = Math.floor(Math.random() * 11) + 1;
         //console.log(random);
         
-        var jewel = $("<div>");
+        var jewel = $("<img>");
         jewel.attr({
             "class": 'jewel',
-            "data-forme": random
+            "data-forme": random,
+
+            "src": images[i]
+
         });
 
-        jewel.html(random);
+        //jewel.html(random);
 
         $(".jewels").append(jewel);
 
