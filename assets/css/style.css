@@ -4,11 +4,19 @@ body {
     background-size: cover;
     height: 100%;
 }
+
+h1 {
+    text-align: center;
+    color: whitesmoke
+
+}
 h2 {
+    text-align: center;
     color: whitesmoke;
 }
 
 h3 {
+    text-align: center;
     color: whitesmoke;
 }
 
@@ -28,5 +36,7 @@ h3 {
 }
 
 .wordies {
+    text-align: center;
     color: whitesmoke;
+    
 }

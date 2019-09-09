@@ -28,10 +28,13 @@ var resetGame = function () {
 
     $("#result").html('Random Number: ' + randomResult);
 
+// Giving each jewel a random value at the start of each game
+
     for (var i = 0; i < 4; i++) {
         var random = Math.floor(Math.random() * 11) + 1;
         //console.log(random);
         
+// Giving each jewel block a jewel image
         var jewel = $("<img>");
         jewel.attr({
             "class": 'jewel',
@@ -59,19 +62,22 @@ $(document).on('click',".jewel", function () {
     previous += num;
     $("#previous").html("Current amount: " + previous)
     console.log(previous)
+    // function for losing the game if you go above random result you lose
     if (previous > randomResult) {
         losses++;
         $("#losses").html("You lost: " + losses);
         previous = 0;
-        
+    // This resets the game if you lose    
         resetGame();
 
     }
+    // function for winning the game if you match the random result you win
     else if (previous === randomResult) {
         wins++;
         $("#wins").html("You won: " + wins);
         
         previous = 0;
+    //If you win the game it resets
         resetGame();
 
     }
